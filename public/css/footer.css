@@ -1,0 +1,36 @@
+/* pied de page */
+footer {
+    border-top: 1px solid #e0e0e0;
+    padding: 40px 20px;
+    margin-top: 60px;
+    color: #666;
+    font-size: 14px;
+}
+
+footer .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+footer h3 {
+    font-size: 14px;
+    color: #000;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer a {
+    color: #666;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #000;
+}

@@ -1,0 +1,12 @@
+/* formulaire article */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.container h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    font-weight: 700;
+}

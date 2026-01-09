@@ -1,0 +1,32 @@
+/* page article detail */
+.article-header {
+    margin-bottom: 40px;
+}
+
+.article-header h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.article-meta {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.article-content {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.article-actions {
+    display: flex;
+    gap: 15px;
+    padding-top: 30px;
+    border-top: 1px solid #e0e0e0;
+}

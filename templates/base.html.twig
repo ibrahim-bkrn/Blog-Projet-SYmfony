@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Bienvenue !{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <link rel="stylesheet" href="{{ asset('css/base.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <span class="brand">MON BLOG</span>
+                <li><a href="{{ path('app_acceuil') }}">Acceuil</a></li>
+                <li><a href="{{ path('app_article_index') }}">Articles</a></li>
+                {% if app.user %}
+                    <li><a href="{{ path('app_profil') }}">Profil</a></li>
+                    <li><a href="{{ path('app_logout') }}">Deconnexion</a></li>
+                    <li>{{ app.user.prenom }}</li>
+                {% else %}
+                    <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                    <li><a href="{{ path('app_register') }}">Inscripton</a></li>
+                {% endif %}
+
+            </ul>
+        </nav>
+
+        {% block body %}{% endblock %}
+
+        {% block footer %}
+        <footer>
+            <div class="footer-content">
+                <div>
+                    <h3>Page Légales</h3>
+                    <ul>
+                        <li><a href="{{ path('app_cgu') }}">CGU</a></li>
+                        <li><a href="{{ path('app_cgv') }}">CGV</a></li>
+                        <li><a href="{{ path('app_privacy') }}">Politique de Confidentialité</a></li>
+                        <li><a href="{{ path('app_about') }}">Qui sommes-nous ?</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Liens Rapides</h3>
+                    <ul>
+                        <li><a href="{{ path('app_acceuil') }}">Acceuil</a></li>
+                        <li><a href="{{ path('app_article_index') }}">Articles</a></li>
+                        {% if not app.user %}
+                            <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                            <li><a href="{{ path('app_register') }}">Inscripton</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        {% endblock %}
+    </body>
+    
+</html>

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier l'Article - Mon Blog{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/article-form.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/forms.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/common.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Modifier l'Article</h1>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="article_form_titre">Titre</label>
+            {{ form_widget(form.titre, {'attr': {'id': 'article_form_titre'}}) }}
+            {% if form.titre.vars.errors|length > 0 %}
+                <div class="form-error">{{ form_errors(form.titre) }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="article_form_contenu">Contenu</label>
+            {{ form_widget(form.contenu, {'attr': {'id': 'article_form_contenu', 'rows': 15}}) }}
+            {% if form.contenu.vars.errors|length > 0 %}
+                <div class="form-error">{{ form_errors(form.contenu) }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn">Mettre à jour</button>
+            <a href="{{ path('app_article_show', {'id': article.id}) }}" class="btn btn-outline">Annuler</a>
+        </div>
+        
+        {{ form_end(form) }}
+    </form>
+</div>
+
+{% endblock %}

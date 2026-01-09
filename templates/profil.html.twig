@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Profil - Mon Blog{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/common.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+        <div class="profile-section">
+            <div class="profile-box">
+                <h1>Profil Utilisateur</h1>
+                <p class="profile-welcome">Bienvenue sur votre profil, {{ app.user.prenom }}!</p>
+                
+                {% if prenom is defined %}
+                    <div class="profile-info">
+                        <ul>
+                            <li><strong>Prénom</strong>{{ prenom }}</li>
+                            <li><strong>Nom</strong>{{ nom }}</li>
+                            <li><strong>Email</strong>{{ email }}</li>
+                        </ul>
+                    </div>
+                {% endif %}
+                
+                <a href="{{ path('app_logout') }}" class="btn">Se déconnecter</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

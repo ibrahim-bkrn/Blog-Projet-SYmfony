@@ -1,0 +1,47 @@
+/* container principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* boutons */
+.btn {
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.btn-outline {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #e0e0e0;
+}
+
+.btn-outline:hover {
+    border-color: #000;
+    background-color: #000;
+    color: #fff;
+}
+
+.btn-delete {
+    background-color: #fff;
+    color: #c62828;
+    border: 1px solid #e0e0e0;
+}
+
+.btn-delete:hover {
+    border-color: #c62828;
+}

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Blog{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/acceuil.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="hero">
+        <h1>Bienvenue dans mon blog</h1>
+        <p> Explorez mes idées et réflexions partagées avec le monde.</p>
+        <div class="cta-buttons">
+            {% if app.user %}
+                <a href="#" class="btn">Ecrire un Article</a>
+            {% else %}
+                <a href="{{ path('app_register') }}" class="btn">Inscrire</a>
+                <a href="{{ path('app_login') }}" class="btn btn-outline">Connexion</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <section class="articles-section" id="articles">
+        <h2>Derniers Articles</h2>
+        {% if articles|length > 0 %}
+            <div class="articles-grid">
+                {% for article in articles %}
+                    <div class="article-card">
+                        <h3>{{ article.titre }}</h3>
+                        <div class="meta">{{ article.createdAt|date('Y-m-d') }}</div>
+                        
+                        {# Pour afficher 150 premiers caractères du contenu #}
+                        <p>{{ article.contenu|slice(0, 150) }}{% if article.contenu|length > 150 %}...{% endif %}</p>
+                        <div class="author">Par {{ article.author.prenom }} {{ article.author.nom }}</div>
+                        <a href="{{ path('app_article_show', {'id': article.id}) }}" style="text-decoration: none; color: #000000; font-weight: 600; margin-top: 15px; display: inline-block;">Lire Plus →</a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="empty-state" style="grid-column: 1 / -1;">
+                <p>Aucun article pour le moment. Soyez le premier à partager vos pensées!</p>
+            </div>
+        {% endif %}
+    </section>
+</div>
+
+
+
+{% endblock %}
